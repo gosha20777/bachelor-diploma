@@ -1,0 +1,22 @@
+
+├── NumSharp.Lite.dll
+├── Protobuf.dll
+├── TensorFlow.net.dll
+├── LacmusPlugin.dll
+└── runtimes
+    ├── linux-x64
+    │   └── native
+    │       ├── libonednn.so
+    │       ├── libtensorflow_framework.so.2
+    │       └── libtensorflow.so
+    ├── osx-x64
+    │   └── native
+    │       ├── libonednn.dylib
+    │       ├── libtensorflow.dylib
+    │       └── libtensorflow_framework.2.dylib
+    └── win-x64
+        └── native
+            ├── libonednn.dll
+            └── tensorflow.dll
+
+native
