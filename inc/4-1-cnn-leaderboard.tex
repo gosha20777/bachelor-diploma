@@ -1,23 +1,23 @@
 \subsection{Выбор подходящего детектора}
 
-В качестве кондидатов мною были выбраны лучшие архитектуры за последние 7 лет. Отбор производился на основе соремнований для задачи детекции MS COCO. Ниже приведен список этих типов СНС:
+В качестве кандидатов мною были выбраны лучшие архитектуры за последние 7 лет. Отбор производился на основе соревнований для задачи детекции MS COCO \cite{lib-coco}. Ниже приведен список этих типов СНС:
 \begin{itemize}
-    \item MobileNet-v3 + SSD -- one-stage детектор симейства SSD с MobileNet (v3) в качестве backbone;
-    \item YOLO-v4 (Darknet-53) -- one-stage детектор симейства YOLO v4 с Darknet-53 в качестве backbone;
-    \item EfficientDet-D3 -- one-stage детектор симейства Efficientdet с EfficientNet-B3 в качестве backbone;
-    \item TTFNet-53 -- one-stage детектор симейства TTFNet с Darknet-53 в качестве backbone;
-    \item RetinaNet (Resnet-50) -- one-stage детектор симейства RetinaNet с Resnet-50 в качестве backbone;
-    \item Faster RCNN -- two-stage детектор симейства Faster RCNN.
+    \item MobileNet-v3 + SSD -- one-stage детектор симейства SSD с MobileNet (v3) \cite{lib-mobilenet} в качестве backbone;
+    \item YOLO-v4 (Darknet-53) -- one-stage детектор симейства YOLO v4 с Darknet-53 в качестве backbone \cite{lib-yolo};
+    \item EfficientDet-D3 -- one-stage детектор симейства Efficientdet с EfficientNet-B3 в качестве backbone \cite{lib-efficientdet};
+    \item TTFNet-53 -- one-stage детектор симейства TTFNet с Darknet-53 в качестве backbone \cite{lib-ttfnet};
+    \item RetinaNet (Resnet-50) -- one-stage детектор симейства RetinaNet с Resnet-50 \cite{lib-resnet} в качестве backbone \cite{lib-retinanet};
+    \item Faster RCNN -- two-stage детектор симейства Faster RCNN \cite{lib-rcnn}.
 \end{itemize}
 
-Все перечисленные выше кондидаты были поставлены в одиноковые условия и обучались по одному алгоритму:
+Все перечисленные выше кандидаты были поставлены в одинаковые условия и обучались по одному алгоритму:
 \begin{itemize}
     \item СНС инициализировалась со случайными весами;
     \item СНС обучалась на выборке MS COCO (100 эпох);
-    \item Обученная на предыдущем шаге СНС дополнительно обучалась на LaDD и VisDrone (10 эпох).
+    \item Обученная на предыдущем шаге СНС дополнительно последовательно обучалась сначала на VisDrone а затем на LaDD (по 10 эпох).
 \end{itemize}
 
-Результаты эксперемента приведены в таблице \ref{leaderboard-table}.
+Результаты эксперимента приведены в таблице \ref{leaderboard-table}.
 
 \begin{table}[H]
   \caption{Сравнение различных архитектур детекторов}\label{leaderboard-table}
@@ -40,7 +40,7 @@
   \end{tabular}
 \end{table}
 
-Из эксперимента видно что по совокупности точности и скорости работы лучше всего справляется с детекцией RetinaNet. Также превосходтсво этой архитектуры подтверждает еще одно исследование. В нем сравнения СНС проводились на выборке Stenfird Drone Dataset (SDD) в которой содержится около 1 миллиона изображений снятых с БПЛА в кампусе Стенфордского Университета. Некоторые результаты этого исследования приведены в таблице \ref{leaderboard-table-sdd}.
+Из эксперимента видно, что по совокупности, точности и скорости работы лучше всего справляется с детекцией RetinaNet. Также превосходство этой архитектуры подтверждает еще одно исследование \cite{lib-benchmark-sdd}. В нем сравнения СНС проводились на выборке Stanford Drone Dataset (SDD) \cite{lib-sdd} в которой содержится около 1 миллиона изображений снятых с БПЛА в кампусе Стенфордского Университета. Некоторые результаты этого исследования приведены в таблице \ref{leaderboard-table-sdd}.
 
 \begin{table}[H]
   \caption{Сравнение различных архитектур детекторов на выборке SDD}\label{leaderboard-table-sdd}
@@ -52,9 +52,9 @@
     \hline
     Faster RCNN (ResNet-50) & 0.83 \\
     \hline
-    RetinaNet (Resnet-50) & 0.85 \\
+    RetinaNet (ResNet-50) & 0.85 \\
     \hline
   \end{tabular}
 \end{table}
 
-Из вышеперечисленных исследований следует, что RetinaNet в сравнении с другими архитектурами обладает высокой точностью и скоростью работы и ее можно применять для решения задач детектирования объектов по снимкам с БПЛА.
+Из вышеперечисленных исследований следует, что RetinaNet, в сравнении с другими архитектурами, обладает высокой точностью и скоростью работы, и ее можно применять для решения задач детектирования объектов по снимкам с БПЛА.
