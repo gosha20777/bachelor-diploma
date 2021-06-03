@@ -13,15 +13,15 @@
 Для практической реализации вышеупомянутых подходов мною были использованы следующие инструменты, библиотеки и устройства:
 
 \begin{itemize}
-    \item OneDNN (Tensorflow-oneDNN-2.3) - низкоуровневая библиотека обеспечивающая высокопроизводительное выполнение тензорных операций на x86 процессорах Intel и AMD \cite{lib-onednn};
-    \item CUDA \cite{lib-cuda}, CuDNN \cite{lib-cudnn}, TensorRT \cite{lib-tensorrt} (Tensorflow-tensorrt-2.3) -- набор низкоуровневых библиотек и инструментов обиспечиваюие высокопроизводительное выполнение тензорных операций на графических ускорителях nVidia, а также объединение слоев и кванитизацию;
+    \item OneDNN (Tensorflow-oneDNN-2.3) -- низкоуровневая библиотека, обеспечивающая высокопроизводительное выполнение тензорных операций на x86 процессорах Intel и AMD \cite{lib-onednn};
+    \item CUDA \cite{lib-cuda}, CuDNN \cite{lib-cudnn}, TensorRT \cite{lib-tensorrt} (Tensorflow-tensorrt-2.3) -- набор низкоуровневых библиотек и инструментов, обеспечивающие высокопроизводительное выполнение тензорных операций на графических ускорителях nVidia, а также объединение слоев и кванитизацию;
     \item Сопроцессоры Intel Movidius Myriad 2 \cite{lib-movidius} и Google Coral Edge TPU \cite{lib-coral} (рис. \ref{7-1-npus}) и соответствующие им наборы библиотек (OpenVINO \cite{lib-openvino} и Tensorflow-lite \cite{lib-tflite}).
 \end{itemize}
 
 Полученные результаты ускорения модели RetinaNet-WFPN приведены в таблице ниже:
 
 \begin{table}[H]
-    \caption{Оптимизация времени инференса RetinaNet-WFPN}\label{leaderboard-full}
+    \caption{Оптимизация времени инференса RetinaNet-WFPN}\label{leaderboard-optilization}
     \begin{tabular}{|p{6cm}|c|c|p{2cm}|}
         \hline
         {Устройство} & {Библиотека} & {Формат} & {Время работы, мс} \\
