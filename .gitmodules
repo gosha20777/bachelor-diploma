@@ -1,0 +1,3 @@
+[submodule "inc/scripts/lacmus-plugins"]
+	path = inc/scripts/lacmus-plugins
+	url = https://github.com/lacmus-foundation/lacmus-plugins.git
