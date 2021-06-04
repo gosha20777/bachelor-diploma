@@ -93,6 +93,11 @@
 \renewcommand\cftsecpagefont{\mdseries}             % Номера страниц не жирные
 \setcounter{tocdepth}{3}                            % Глубина оглавления, до subsubsection
 
+% Нумерация разделов
+%\renewcommand{\thesection}{\arabic{section}.}
+%\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+%\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+
 % Нумерация страниц справа сверху
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -110,9 +115,9 @@
 
 % Формат подрисуночных надписей
 \RequirePackage{caption}
-\DeclareCaptionLabelSeparator{defffis}{ -- } % Разделитель
+\DeclareCaptionLabelSeparator{defffis}{ } % Разделитель
 \captionsetup[figure]{justification=centering, labelsep=defffis, format=plain} % Подпись рисунка по центру
-\captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
+\captionsetup[table]{justification=raggedleft, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
 \addto\captionsrussian{\renewcommand{\figurename}{Рис.}} % Имя фигуры
 
 % Пользовательские функции
@@ -164,10 +169,10 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
-\titleformat{\subsection}[block]{\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
-\titleformat{\subsubsection}[block]{\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
-\titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
+\titleformat{\section}{}{}{0.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{0.5em}}
+\titleformat{\subsection}[block]{\vspace{0.5em}}{}{0.5mm}{\centering{\thesubsection\quad#1}\vspace{0.5em}}
+\titleformat{\subsubsection}[block]{\vspace{0.5em}\normalsize}{}{0.5mm}{\centering{\thesubsubsection\quad#1}\vspace{0.5em}}
+\titleformat{\paragraph}[block]{\normalsize}{}{0.5mm}{\centering{\MakeTextUppercase{#1}}}
 
 % Секции без номеров (введение, заключение...), вместо section*{}
 \newcommand{\anonsection}[1]{
