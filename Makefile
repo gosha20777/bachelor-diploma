@@ -2,6 +2,9 @@ all: build clean run
 
 build:
 	latexmk -xelatex \
+	-synctex=1 essay.tex
+	mv essay.pdf extra/essay.pdf
+	latexmk -xelatex \
 	-synctex=1 main.tex
 	
 run:
